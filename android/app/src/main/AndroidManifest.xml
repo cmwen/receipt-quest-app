@@ -1,6 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Permissions for camera and storage -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+                     android:maxSdkVersion="28"/>
+    
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    
     <application
-        android:label="min_flutter_template"
+        android:label="Receipt Quest"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

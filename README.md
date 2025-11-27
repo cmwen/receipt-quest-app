@@ -1,6 +1,6 @@
-# Minimal Flutter App Template
+# Receipt Quest
 
-A production-ready Flutter template with **AI-powered development workflow**, optimized build system, and comprehensive documentation. Start building your cross-platform app in minutes, not hours.
+A gamified receipt tracking app that helps you maximize tax deductions through immediate visual feedback and habit formation. Built with Flutter for iOS and Android.
 
 ## ✨ What Makes This Template Special
 
