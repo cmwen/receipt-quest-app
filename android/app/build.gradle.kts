@@ -35,7 +35,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.cmwen.receipt_quest"
-    compileSdk = 33  // SDK 34 has compatibility issues with sqflite
+    compileSdk = 31  // sqflite_android 2.4.2 requires API < 33
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
