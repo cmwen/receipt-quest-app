@@ -35,7 +35,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.cmwen.receipt_quest"
-    compileSdk = 34  // Required for google_mlkit (Java 9+ support)
+    compileSdk = 33  // SDK 34 has compatibility issues with sqflite
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
