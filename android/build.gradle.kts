@@ -26,6 +26,7 @@ subprojects {
         // Force Java compatibility to 17 for all Android projects
         if (plugins.hasPlugin("com.android.application") || plugins.hasPlugin("com.android.library")) {
             extensions.getByType(com.android.build.gradle.BaseExtension::class).apply {
+                compileSdkVersion(34)  // Required for google_mlkit (Java 9+ support)
                 compileOptions {
                     sourceCompatibility = JavaVersion.VERSION_17
                     targetCompatibility = JavaVersion.VERSION_17
