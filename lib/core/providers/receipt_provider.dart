@@ -30,9 +30,14 @@ class ReceiptProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    _userProfile = await _storage.getUserProfile();
-    if (_userProfile != null) {
-      await loadReceipts();
+    try {
+      _userProfile = await _storage.getUserProfile();
+      if (_userProfile != null) {
+        await loadReceipts();
+      }
+    } catch (e) {
+      // Log error but continue - allows app to load even if storage fails
+      debugPrint('Error initializing ReceiptProvider: $e');
     }
 
     _isLoading = false;

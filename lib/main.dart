@@ -4,7 +4,8 @@ import 'core/providers/receipt_provider.dart';
 import 'features/onboarding/onboarding_screen.dart';
 import 'features/dashboard/dashboard_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const ReceiptQuestApp());
 }
 
