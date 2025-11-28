@@ -140,34 +140,74 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget _buildIncomeOption(String value, String label) {
-    return RadioListTile<String>(
-      value: value,
-      groupValue: _selectedIncome,
-      onChanged: (val) {
+    return GestureDetector(
+      onTap: () {
         setState(() {
-          _selectedIncome = val!;
+          _selectedIncome = value;
         });
       },
-      title: Text(label),
-      dense: true,
-      contentPadding: EdgeInsets.zero,
-      activeColor: Colors.green,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+        child: Row(
+          children: [
+            Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: _selectedIncome == value ? Colors.green : Colors.grey,
+                  width: 2,
+                ),
+                color: _selectedIncome == value
+                    ? Colors.green
+                    : Colors.transparent,
+              ),
+              child: _selectedIncome == value
+                  ? const Icon(Icons.check, size: 16, color: Colors.white)
+                  : null,
+            ),
+            const SizedBox(width: 12),
+            Expanded(child: Text(label)),
+          ],
+        ),
+      ),
     );
   }
 
   Widget _buildFilingOption(String value, String label) {
-    return RadioListTile<String>(
-      value: value,
-      groupValue: _selectedFiling,
-      onChanged: (val) {
+    return GestureDetector(
+      onTap: () {
         setState(() {
-          _selectedFiling = val!;
+          _selectedFiling = value;
         });
       },
-      title: Text(label),
-      dense: true,
-      contentPadding: EdgeInsets.zero,
-      activeColor: Colors.green,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+        child: Row(
+          children: [
+            Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: _selectedFiling == value ? Colors.green : Colors.grey,
+                  width: 2,
+                ),
+                color: _selectedFiling == value
+                    ? Colors.green
+                    : Colors.transparent,
+              ),
+              child: _selectedFiling == value
+                  ? const Icon(Icons.check, size: 16, color: Colors.white)
+                  : null,
+            ),
+            const SizedBox(width: 12),
+            Expanded(child: Text(label)),
+          ],
+        ),
+      ),
     );
   }
 

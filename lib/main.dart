@@ -6,13 +6,13 @@ import 'features/dashboard/dashboard_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Ensure proper error handling for initialization
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
     debugPrint('Flutter error: ${details.exception}');
   };
-  
+
   runApp(const ReceiptQuestApp());
 }
 
