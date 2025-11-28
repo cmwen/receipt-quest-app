@@ -6,6 +6,13 @@ import 'features/dashboard/dashboard_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Ensure proper error handling for initialization
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    debugPrint('Flutter error: ${details.exception}');
+  };
+  
   runApp(const ReceiptQuestApp());
 }
 
@@ -36,12 +43,31 @@ class AppInitializer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ReceiptProvider>(
       builder: (context, provider, child) {
+        // Show loading indicator while initializing
         if (provider.isLoading) {
           return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
+            backgroundColor: Colors.white,
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(color: Colors.green),
+                  SizedBox(height: 24),
+                  Text(
+                    'Loading Receipt Quest...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           );
         }
 
+        // Navigate based on profile status
         if (provider.hasProfile) {
           return const DashboardScreen();
         }
