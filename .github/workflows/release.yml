@@ -52,6 +52,28 @@ jobs:
     - name: Run tests
       run: flutter test --concurrency=$(nproc)
     
+    - name: Extract version from tag
+      id: version
+      run: |
+        # Extract version from tag (e.g., v1.0.0 -> 1.0.0)
+        VERSION=${GITHUB_REF_NAME#v}
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        
+        # Extract version name and build number (e.g., 1.0.0+1 -> 1.0.0 and 1)
+        VERSION_NAME=$(echo $VERSION | cut -d'+' -f1)
+        BUILD_NUMBER=$(echo $VERSION | cut -d'+' -f2)
+        
+        # If no build number in tag, calculate from version
+        if [ "$VERSION_NAME" = "$BUILD_NUMBER" ]; then
+          # Convert version to build number: 1.0.0 -> 1000000
+          IFS='.' read -r major minor patch <<< "$VERSION_NAME"
+          BUILD_NUMBER=$((major * 1000000 + minor * 1000 + patch))
+        fi
+        
+        echo "version_name=$VERSION_NAME" >> $GITHUB_OUTPUT
+        echo "build_number=$BUILD_NUMBER" >> $GITHUB_OUTPUT
+        echo "Building version: $VERSION_NAME ($BUILD_NUMBER)"
+    
     - name: Decode Android keystore
       if: ${{ env.ANDROID_KEYSTORE_BASE64 != '' }}
       env:
@@ -75,13 +97,22 @@ jobs:
         EOF
     
     - name: Build signed APK
-      run: flutter build apk --release
+      run: |
+        flutter build apk --release \
+          --build-name=${{ steps.version.outputs.version_name }} \
+          --build-number=${{ steps.version.outputs.build_number }}
     
     - name: Build signed App Bundle
-      run: flutter build appbundle --release
+      run: |
+        flutter build appbundle --release \
+          --build-name=${{ steps.version.outputs.version_name }} \
+          --build-number=${{ steps.version.outputs.build_number }}
     
     - name: Build Web
-      run: flutter build web --release
+      run: |
+        flutter build web --release \
+          --build-name=${{ steps.version.outputs.version_name }} \
+          --build-number=${{ steps.version.outputs.build_number }}
     
     - name: Create Web Archive
       run: |
