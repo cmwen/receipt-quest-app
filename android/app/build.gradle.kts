@@ -35,7 +35,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.cmwen.receipt_quest"
-    compileSdk = 34  // Required for sqflite_android and image_picker
+    compileSdk = 36  // Required for latest dependencies including androidx.activity
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
