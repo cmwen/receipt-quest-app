@@ -10,9 +10,7 @@ class TaxConfigurationService {
 
   /// Get all enabled country configurations.
   List<CountryConfig> getEnabledCountries() {
-    final countries = <CountryConfig>[
-      AustraliaTaxConfig.countryConfig,
-    ];
+    final countries = <CountryConfig>[AustraliaTaxConfig.countryConfig];
     return countries.where((c) => c.isEnabled).toList();
   }
 

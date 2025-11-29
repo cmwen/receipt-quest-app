@@ -131,8 +131,9 @@ class TaxBracket {
       financialYearId: map['financialYearId'] as String,
       displayName: map['displayName'] as String,
       minIncome: (map['minIncome'] as num).toDouble(),
-      maxIncome:
-          map['maxIncome'] != null ? (map['maxIncome'] as num).toDouble() : null,
+      maxIncome: map['maxIncome'] != null
+          ? (map['maxIncome'] as num).toDouble()
+          : null,
       taxRate: (map['taxRate'] as num).toDouble(),
       sortOrder: map['sortOrder'] as int,
     );

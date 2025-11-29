@@ -15,9 +15,7 @@ class DataExportService {
     final buffer = StringBuffer();
 
     // CSV header
-    buffer.writeln(
-      'Date,Vendor,Amount,Category,Potential Tax Saving,Notes',
-    );
+    buffer.writeln('Date,Vendor,Amount,Category,Potential Tax Saving,Notes');
 
     // CSV rows
     final dateFormat = DateFormat('yyyy-MM-dd');
@@ -60,9 +58,7 @@ class DataExportService {
     final buffer = StringBuffer();
 
     // CSV header
-    buffer.writeln(
-      'Date,Vendor,Amount,Category,Potential Tax Saving,Notes',
-    );
+    buffer.writeln('Date,Vendor,Amount,Category,Potential Tax Saving,Notes');
 
     // CSV rows
     final dateFormat = DateFormat('yyyy-MM-dd');

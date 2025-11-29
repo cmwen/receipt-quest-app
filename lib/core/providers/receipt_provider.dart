@@ -109,7 +109,10 @@ class ReceiptProvider with ChangeNotifier {
     // Use new tax bracket ID if available
     if (_userProfile!.taxBracketId != null &&
         _userProfile!.taxBracketId!.isNotEmpty) {
-      return _taxService.calculateTaxSavings(amount, _userProfile!.taxBracketId);
+      return _taxService.calculateTaxSavings(
+        amount,
+        _userProfile!.taxBracketId,
+      );
     }
 
     // Fallback to legacy calculation
@@ -130,7 +133,9 @@ class ReceiptProvider with ChangeNotifier {
   /// Get tax brackets for the current or specified financial year.
   List<TaxBracket> getTaxBrackets({String? financialYearId}) {
     final fyId =
-        financialYearId ?? _userProfile?.financialYearId ?? currentFinancialYear?.id;
+        financialYearId ??
+        _userProfile?.financialYearId ??
+        currentFinancialYear?.id;
     if (fyId == null) return [];
     return _taxService.getTaxBrackets(fyId);
   }
