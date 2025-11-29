@@ -22,6 +22,54 @@ Create an open-source, privacy-first mobile application that transforms tax dedu
 1. **Educational Impact**: Increase user understanding of tax-deductible expenses through contextual learning
 2. **Community Building**: Leverage open-source development to build a sustainable, trustworthy financial tool
 3. **Privacy Leadership**: Demonstrate that powerful financial apps can respect user data ownership
+4. **Data Ownership**: Users own 100% of their data with full export capabilities and local-only storage
+5. **Global Extensibility**: Design for Australia first, with architecture that easily extends to other countries
+
+## Data Ownership Principles
+
+### Core Tenets
+1. **User Data Sovereignty**: All receipt data, tax calculations, and personal information belong exclusively to the user
+2. **Local-First Storage**: All data is stored on the user's device by default - no cloud sync required
+3. **Full Data Portability**: Users can export their complete data at any time in standard formats (CSV, PDF)
+4. **Transparent Processing**: All calculations and data processing happen on-device with auditable open-source code
+5. **No Data Monetization**: User data is never sold, shared, or used for advertising purposes
+
+### Data Export Rights
+- **Export Formats**: CSV for raw data, PDF for formatted reports
+- **Export Scope**: All receipts, tax calculations, and user preferences
+- **Export Frequency**: Unlimited exports at any time
+- **Data Deletion**: Users can permanently delete all their data with one action
+
+## Regional Focus & Extensibility
+
+### Primary Market: Australia
+Receipt Quest initially focuses on Australian taxpayers with:
+- **Financial Year**: July 1 - June 30
+- **Tax Brackets**: Australian Income Tax rates for FY 2024-2025
+- **Deduction Rules**: Australian Tax Office (ATO) guidelines
+- **Currency**: Australian Dollar (AUD)
+
+### Australian Tax Brackets (FY 2024-2025)
+| Income Bracket | Tax Rate |
+|----------------|----------|
+| $0 - $18,200 | 0% (Tax-free threshold) |
+| $18,201 - $45,000 | 19% |
+| $45,001 - $120,000 | 32.5% |
+| $120,001 - $180,000 | 37% |
+| $180,001+ | 45% |
+
+### Extensibility Strategy
+The app is designed for easy expansion to other countries:
+- **Modular Tax Configuration**: Country-specific tax rules are externalized into configuration modules
+- **Pluggable Tax Calendars**: Financial year dates and tax deadlines are configurable per region
+- **Multi-Currency Support**: Currency handling is abstracted for future international support
+- **Localization Ready**: UI text and tax terminology are externalized for translation
+
+### Future Market Expansion (Post-MVP)
+1. **New Zealand** - Similar tax system, English language
+2. **United Kingdom** - Tax year April 6 - April 5
+3. **United States** - Tax year January 1 - December 31
+4. **Canada** - Tax year January 1 - December 31
 
 ## User Personas & Scenarios
 
@@ -70,18 +118,23 @@ Amy reviews annual progress → sees $3,200 in tracked deductions → exports cl
 
 ### In Scope (MVP):
 1. **Mobile-first receipt scanning** with OCR for amount/vendor extraction
-2. **Immediate tax savings display** with conservative estimates
+2. **Immediate tax savings display** with conservative estimates based on Australian tax brackets
 3. **Basic gamification** (progress tracking, achievements, levels)
 4. **Educational tooltips** explaining deduction rules
 5. **Local-first data storage** with user-controlled cloud sync
 6. **Open-source codebase** with community contribution framework
+7. **Data export** in CSV and PDF formats for full data portability
+8. **Receipt editing** allowing users to update/correct captured receipts
+9. **Australian tax configuration** with FY 2024-2025 brackets and July-June financial year
+10. **Configurable tax settings** for user's income bracket and tax year selection
 
 ### Out of Scope (MVP):
-- Complex multi-state tax calculations
+- Multi-country support (designed for extensibility, but MVP is Australia-only)
 - Direct tax filing integration
 - Advanced business expense categorization
 - Team/family sharing features
 - Professional tax advisor network
+- Cloud sync functionality
 
 ### Constraints:
 1. **Legal**: Must clearly disclaim "estimates only" - not professional tax advice
@@ -129,12 +182,14 @@ Amy reviews annual progress → sees $3,200 in tracked deductions → exports cl
 
 ## Strategic Positioning
 
-### Competitive Moat: Open Source + Privacy
-**Sustainable Advantage**: Unlike proprietary competitors, open-source approach builds:
+### Competitive Moat: Open Source + Privacy + Data Ownership
+**Sustainable Advantage**: Unlike proprietary competitors, our open-source approach builds:
 - **Trust**: Users can verify privacy claims and calculation methods
+- **Data Ownership**: Users retain full control and portability of their data
 - **Community**: Contributors become advocates and power users
 - **Adaptability**: Community can extend features faster than corporate development cycles
 - **Defensibility**: Network effects through community, not just technology
+- **Regional Flexibility**: Extensible architecture enables community-driven international expansion
 
 ### **[Vision → Product]** Handoff
 
@@ -144,6 +199,8 @@ The vision prioritizes:
 3. **High-value transactions** over micro-expenses
 4. **User retention** over revenue metrics
 5. **Open source community** over proprietary advantages
+6. **User data ownership** over data monetization
+7. **Australia-first** with extensibility to other markets
 
 ---
-*Created by Vision Agent | Updated: 2025-09-07 | Links: [Product Backlog](product_backlog.md), [Research Index](research/index.md)*
+*Created by Vision Agent | Updated: 2025-11-29 | Links: [Product Backlog](product_backlog.md), [Design Document](design.md), [Research Index](research/index.md)*
