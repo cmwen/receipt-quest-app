@@ -47,6 +47,11 @@ class UserProfile {
     );
   }
 
+  /// Returns the user's marginal tax rate.
+  ///
+  /// This getter provides backward compatibility for existing code while
+  /// using the TaxConfigurationService for new tax bracket configurations.
+  /// For new code, prefer using TaxConfigurationService directly.
   double get taxRate {
     // Use new tax configuration service if taxBracketId is available
     if (taxBracketId != null && taxBracketId!.isNotEmpty) {
@@ -56,7 +61,7 @@ class UserProfile {
       }
     }
 
-    // Fallback to legacy bracket-based calculation
+    // Fallback to legacy bracket-based calculation for backward compatibility
     switch (incomeBracket) {
       case 'low': // <$40k
         return 0.12;
